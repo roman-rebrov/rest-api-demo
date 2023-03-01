@@ -1,6 +1,6 @@
 package com.domain.restapidemo.service;
 
-import com.domain.restapidemo.Authorities;
+import com.domain.restapidemo.model.Authorities;
 import com.domain.restapidemo.exceprions.InvalidCredentials;
 import com.domain.restapidemo.exceprions.UnauthorizedUser;
 import com.domain.restapidemo.model.Person;
@@ -19,12 +19,14 @@ public class AuthService {
     }
 
 
-    public List<Authorities> getAuthorities(Person person){
+    public List<Authorities> getAuthorities(Person person) throws InvalidCredentials, UnauthorizedUser {
         if(this.isEmpty(person.getUser()) || this.isEmpty(person.getPassword())){
+            System.out.println("User name or password is empty");
             throw new InvalidCredentials("User name or password is empty");
         }
         List<Authorities> userAuthorities = this.repository.getUserAuthorities(person);
         if (isEmpty(userAuthorities)) {
+            System.out.println("Unknown user " + person.getUser());
             throw new UnauthorizedUser("Unknown user " + person.getUser());
         }
         return userAuthorities;

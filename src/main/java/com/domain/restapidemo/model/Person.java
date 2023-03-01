@@ -4,6 +4,9 @@ package com.domain.restapidemo.model;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
 
     private int id;
@@ -14,6 +17,7 @@ public class Person {
     @NotBlank
     @Size(min = 2, max = 30)
     private String password;
+    private List<Authorities> accesses = new ArrayList<>();
 
     public Person(){}
 
@@ -45,6 +49,14 @@ public class Person {
         this.password = password;
     }
 
+    public List<Authorities> getAccesses() {
+        return accesses;
+    }
+
+    public void setAccesses(Authorities access) {
+        this.accesses.add(access);
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -52,5 +64,4 @@ public class Person {
                 ", name='" + user + '\'' +
                 '}';
     }
-
 }
