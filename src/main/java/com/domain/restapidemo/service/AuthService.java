@@ -21,12 +21,10 @@ public class AuthService {
 
     public List<Authorities> getAuthorities(Person person) throws InvalidCredentials, UnauthorizedUser {
         if(this.isEmpty(person.getUser()) || this.isEmpty(person.getPassword())){
-            System.out.println("User name or password is empty");
             throw new InvalidCredentials("User name or password is empty");
         }
-        List<Authorities> userAuthorities = this.repository.getUserAuthorities(person);
+        List<Authorities> userAuthorities = this.repository.getUserAuthorities(person.getUser(), person.getPassword());
         if (isEmpty(userAuthorities)) {
-            System.out.println("Unknown user " + person.getUser());
             throw new UnauthorizedUser("Unknown user " + person.getUser());
         }
         return userAuthorities;

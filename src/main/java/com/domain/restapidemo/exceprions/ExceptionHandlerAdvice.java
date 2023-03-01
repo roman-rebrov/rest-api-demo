@@ -18,11 +18,13 @@ public class ExceptionHandlerAdvice {
 
     @ExceptionHandler(InvalidCredentials.class)
     public ResponseEntity<String> invalidCredentialsHandle(InvalidCredentials ex){
+        System.out.println(ex.getMessage());
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(UnauthorizedUser.class)
     public ResponseEntity<String> unauthorizedUserHandle(UnauthorizedUser ex){
+        System.out.println(ex.getMessage());
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNAUTHORIZED);
     }
 }
