@@ -25,7 +25,7 @@ public class AuthService {
         }
         List<Authorities> userAuthorities = this.repository.getUserAuthorities(person.getUser(), person.getPassword());
         if (isEmpty(userAuthorities)) {
-            throw new UnauthorizedUser("Unknown user " + person.getUser());
+            throw new UnauthorizedUser("Unknown user" + person.getUser());
         }
         return userAuthorities;
     }
