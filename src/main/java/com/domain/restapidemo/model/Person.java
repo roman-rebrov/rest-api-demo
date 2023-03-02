@@ -1,13 +1,19 @@
 package com.domain.restapidemo.model;
 
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 import java.util.List;
 
 public class Person {
 
-
+    @NotBlank
+    @Size(min = 1)
     private String user;
 
-
+    @NotBlank
+    @Size(min = 1)
     private String password;
     private List<Authorities> accesses;
 
