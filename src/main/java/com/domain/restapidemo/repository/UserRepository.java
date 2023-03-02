@@ -31,7 +31,7 @@ public class UserRepository {
                 }
             }
         }
-        throw new InvalidCredentials("Incorrect name or password");
+        return new ArrayList<>();
     }
 
 }
