@@ -13,7 +13,7 @@ public class ExceptionHandlerAdvice {
     @ExceptionHandler(BindException.class)
     public ResponseEntity<String> ArgumentNotValidHandle(BindException ex){
         System.out.println(ex.getMessage());
-        return new ResponseEntity<>("User name or password is empty", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Incorrect data", HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(InvalidCredentials.class)

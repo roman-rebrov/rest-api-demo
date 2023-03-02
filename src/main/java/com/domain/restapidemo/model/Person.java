@@ -9,11 +9,11 @@ import java.util.List;
 public class Person {
 
     @NotBlank
-    @Size(min = 1)
+    @Size(min = 3, max = 20)
     private String user;
 
     @NotBlank
-    @Size(min = 1)
+    @Size(min = 3, max = 20)
     private String password;
     private List<Authorities> accesses;
 
